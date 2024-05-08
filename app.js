@@ -1,10 +1,15 @@
-const http = require('http');
+const express = require('express')
+const app = express();
 
-const routes = require('./routes')
 
-console.log(routes.someText)
-const server = http.createServer(routes.handler)
+app.use((req,res,next) => {
+    console.log("Hello")
+    res.send('<h1>Hi guys</h1>')
+})
 
-server.listen(3000,()=>{
+
+
+
+app.listen(3000,()=>{
     console.log("Server started at port 3000")
 })
